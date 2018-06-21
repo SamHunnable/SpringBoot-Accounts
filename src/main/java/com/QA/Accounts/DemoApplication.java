@@ -25,7 +25,6 @@ public class DemoApplication {
             		repository.save(user);          		
             	});
             }) ;
-            repository.findAll().forEach(System.out::println);
         };
     }
 }

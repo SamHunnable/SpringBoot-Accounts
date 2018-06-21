@@ -12,6 +12,9 @@ import javax.persistence.Entity;
 @ToString @EqualsAndHashCode
 public class User {
 	
+	public Long getId() {
+		return id;
+	}
 	@Id @GeneratedValue
     private Long id;
     private @NonNull String firstName;
