@@ -2,7 +2,19 @@
   This comes from the user-list html page
 </p>
 
-<div *ngFor="let user of users">
-  {{user.firstName}}
-  {{user.lastName}}
-</div>
+<table border=1>
+<tr>
+  <th> First Name </th>
+  <th> Last Name </th>
+</tr>
+
+<tr *ngFor="let user of users">
+  <td> {{user.firstName}} </td>
+  <td> {{user.lastName}} </td>
+  <td> <button (click)="this.editUser()"> Edit </button> </td>
+  <td> <button> Delete </button> </td>
+</tr>
+
+<p id="testing"> before click
+</p>
+</table>

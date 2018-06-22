@@ -21,4 +21,9 @@ export class UserListComponent implements OnInit {
     console.log("what is in this.users " + this.users);
   }
 
+  editUser() {
+    console.log("button pressed")
+    document.getElementById('testing').innerHtml = 'button clicked';
+  }
+
 }
