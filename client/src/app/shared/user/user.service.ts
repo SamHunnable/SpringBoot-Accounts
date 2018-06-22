@@ -19,6 +19,7 @@ getAll(): Observable < any > {
 }
 
   deleteById(id) {
+    console.log(id);
        this.http.delete("//localhost:8080/users/" + id);
  }
 

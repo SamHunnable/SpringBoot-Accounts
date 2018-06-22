@@ -26,4 +26,10 @@ export class UserListComponent implements OnInit {
     document.getElementById('testing').innerHtml = 'button clicked';
   }
 
+  deleteUser(user) {
+        console.log("delete ran");
+        console.log(user);
+    this.userService.deleteById(user.id);
+  }
+
 }
