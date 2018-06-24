@@ -8,13 +8,27 @@
   <th> Last Name </th>
 </tr>
 
-<tr *ngFor="let user of users">
+<tr *ngFor="let user of users" >
   <td> {{user.firstName}} </td>
   <td> {{user.lastName}} </td>
-  <td> <button (click)="this.editUser()"> Edit </button> </td>
+  <td> <button (click)="this.editUser(user)"> Edit </button> </td>
   <td> <button (click)="this.deleteUser(user)"> Delete  </button> </td>
 </tr>
 
-<p id="testing"> before click
-</p>
+<tr *ngIf="editingUserState">
+  <td> <input [(ngModel)]="firstNameToEdit" /> </td>
+  <td> <input [(ngModel)]="lastNameToEdit" />
+  <td> <button (click)="this.saveUser()"> Save </button> </td>
+  <td> <button (click)="this.cancelEdit()"> Cancel </button> </td>
+</tr>
+
+<tr *ngIf="addingUserState">
+  <td> <input [(ngModel)]="this.newFirstName" /> </td>
+  <td> <input [(ngModel)]="this.newLastName" /> </td>
+  <td> <button (click)="this.saveUser()"> Save </button> </td>
+
+</tr>
+
 </table>
+<br>
+<button (click)="addingUser()"> Add a user </button>
