@@ -21,7 +21,7 @@ getAll(): Observable < any > {
 
   deleteById(id) {
     console.log("id is " + id);
-    path: String = "localhost:8080/users/" + id;
+    path: String = 'localhost:8080/users/' + id;
     console.log("path is " + this.path);
     this.http.delete(this.path);
  }
@@ -29,6 +29,10 @@ getAll(): Observable < any > {
  addUser(newUser) {
    console.log("addUser in user.service ran");
    this.http.post("//localhost:8080/users", newUser);
+ }
+
+ editUser(editedUser) {
+   this.http.put("//localhost:8080/users/edit", editedUser);
  }
 
 }

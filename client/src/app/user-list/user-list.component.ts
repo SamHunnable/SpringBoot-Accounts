@@ -40,7 +40,7 @@ export class UserListComponent implements OnInit {
 
   deleteUser(user) {
     console.log("delete ran");
-    console.log(user);
+    console.log(user.id);
     this.userService.deleteById(user.id);
   }
 
@@ -49,7 +49,16 @@ export class UserListComponent implements OnInit {
 
   }
 
-  saveUser() {
+  saveUserEdit() {
+    editedUser: String = {
+      "firstName": this.firstNameToEdit,
+      "lastName": this.lastNameToEdit
+    }
+    console.log("editedUser is " + this.editedUser);
+    this.userService.editUser(this.editedUser);
+  }
+
+  saveNewUser() {
     console.log("saveUser ran");
     newUser: String = {
       "firstName": this.newFirstName,

@@ -18,14 +18,14 @@
 <tr *ngIf="editingUserState">
   <td> <input [(ngModel)]="firstNameToEdit" /> </td>
   <td> <input [(ngModel)]="lastNameToEdit" />
-  <td> <button (click)="this.saveUser()"> Save </button> </td>
+  <td> <button (click)="this.saveUserEdit()"> Save </button> </td>
   <td> <button (click)="this.cancelEdit()"> Cancel </button> </td>
 </tr>
 
 <tr *ngIf="addingUserState">
   <td> <input [(ngModel)]="this.newFirstName" /> </td>
   <td> <input [(ngModel)]="this.newLastName" /> </td>
-  <td> <button (click)="this.saveUser()"> Save </button> </td>
+  <td> <button (click)="this.saveNewUser()"> Save </button> </td>
 
 </tr>
 
