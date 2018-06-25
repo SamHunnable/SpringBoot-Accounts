@@ -35,22 +35,26 @@ class UserController {
 		}
 		
 		@GetMapping("/users/{id}")
+		@CrossOrigin(origins = "http://localhost:4200")
 		public String retrieveUserById(@PathVariable long id) {
 			return new Gson().toJson(repository.findById(id));
 		}
 		
 		@DeleteMapping("/users/{id}")
+		@CrossOrigin(origins = "http://localhost:4200")
 		public void deleteUser(@PathVariable long id) {
 			repository.deleteById(id);
 		}
 		
 		@PostMapping("/users/add")
+		@CrossOrigin(origins = "http://localhost:4200")
 		public String createUser(@RequestBody String user) {
 			repository.save(new Gson().fromJson(user, User.class));
 			return "\"message\" : \"User added\"";
 		}
 		
 		@PutMapping("/users/edit")
+		@CrossOrigin(origins = "http://localhost:4200")
 		public String updateUser(@RequestBody String user) {
 			User newUser = new Gson().fromJson(user, User.class);
 			User oldUser = repository.findById(newUser.getId()).get();

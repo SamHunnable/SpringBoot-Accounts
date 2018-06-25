@@ -37,7 +37,7 @@ export class UserListComponent implements OnInit {
     this.editingUserState = true;
     console.log("button pressed")
   }
-  
+
   deleteUser(user) {
       console.log("delete ran");
       console.log(user.id);
@@ -52,7 +52,7 @@ export class UserListComponent implements OnInit {
     editedUser: String = {
       "firstName": this.firstNameToEdit,
       "lastName": this.lastNameToEdit
-    }
+    };
     console.log("editedUser is " + this.editedUser);
     this.userService.editUser(this.editedUser);
   }

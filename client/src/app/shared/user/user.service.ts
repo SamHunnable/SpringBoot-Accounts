@@ -32,7 +32,7 @@ getAll(): Observable < any > {
     // this.http.delete(this.webPath + '/' + id).subscribe(data => {
     //   this.users = data;
     // });
-    this.http.delete(this.webPath + '/' + id);
+    this.http.delete(this.webPath + '/' + id).subscribe();
  }
 
 
