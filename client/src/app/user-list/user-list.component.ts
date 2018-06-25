@@ -37,16 +37,15 @@ export class UserListComponent implements OnInit {
     this.editingUserState = true;
     console.log("button pressed")
   }
-
+  
   deleteUser(user) {
-    console.log("delete ran");
-    console.log(user.id);
-    this.userService.deleteById(user.id);
-  }
+      console.log("delete ran");
+      console.log(user.id);
+      this.userService.deleteById(user.id);
+    }
 
   addingUser() {
     this.addingUserState = !this.addingUserState;
-
   }
 
   saveUserEdit() {

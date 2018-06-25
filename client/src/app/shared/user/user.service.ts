@@ -29,10 +29,12 @@ getAll(): Observable < any > {
     var deletePath = testString.concat(idToDelete);
     console.log("deletePath is " + deletePath);
     console.log(this.webPath + '/' + id);
-    this.http.delete(this.webPath + '/' + id).subscribe(data => {
-      this.users = data;
-    });;
+    // this.http.delete(this.webPath + '/' + id).subscribe(data => {
+    //   this.users = data;
+    // });
+    this.http.delete(this.webPath + '/' + id);
  }
+
 
  addUser(newUser) {
    console.log("addUser in user.service ran");

@@ -12,7 +12,7 @@
   <td> {{user.firstName}} </td>
   <td> {{user.lastName}} </td>
   <td> <button (click)="this.editUser(user)"> Edit </button> </td>
-  <td> <button (click)="this.deleteUser(user)"> Delete  </button> </td>
+  <td> <button (click)="deleteUser(user)"> Delete  </button> </td>
 </tr>
 
 <tr *ngIf="editingUserState">
@@ -30,5 +30,6 @@
 </tr>
 
 </table>
+
 <br>
 <button (click)="addingUser()"> Add a user </button>
