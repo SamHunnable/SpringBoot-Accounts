@@ -13,6 +13,7 @@ export class UserListComponent implements OnInit {
   editingUserState: boolean = false;
   firstNameToEdit: String;
   lastNameToEdit: String;
+  idToEdit: long;
   newFirstName: String;
   newLastName: String;
 
@@ -22,7 +23,6 @@ export class UserListComponent implements OnInit {
     console.log("The init in user-list.component ran")
     this.userService.getAll().subscribe(data => {
       this.users = data;
-
     });
     console.log("what is in this.users " + this.users);
   }
@@ -34,8 +34,8 @@ export class UserListComponent implements OnInit {
   editUser(user) {
     this.firstNameToEdit = user.firstName;
     this.lastNameToEdit = user.lastName;
+    this.idToEdit = user.id;
     this.editingUserState = true;
-    console.log("button pressed")
   }
 
   deleteUser(user) {
@@ -49,22 +49,23 @@ export class UserListComponent implements OnInit {
   }
 
   saveUserEdit() {
-    editedUser: String = {
-      "firstName": this.firstNameToEdit,
-      "lastName": this.lastNameToEdit
-    };
-    console.log("editedUser is " + this.editedUser);
-    this.userService.editUser(this.editedUser);
+    let editedUser: any = {};
+    editedUser.id = this.idToEdit;
+    editedUser.firstName = this.firstNameToEdit;
+    editedUser.lastName = this.lastNameToEdit;
+    console.log(editedUser);
+    JSON.stringify(editedUser);
+    console.log("editedUser is " + JSON.stringify(editedUser));
+    this.userService.editUser(JSON.stringify(editedUser));
   }
 
   saveNewUser() {
     console.log("saveUser ran");
-    newUser: String = {
-      "firstName": this.newFirstName,
-      "lastName": this.newLastName
-    };
+    let newUser: any = {};
+    newUser.firstName = this.newFirstName;
+    newUser.lastName = this.newLastName;
     console.log("newUser is " + this.newuser);
-    this.userService.addUser(this.newUser);
+    this.userService.addUser(JSON.stringify(newUser));
   }
 
 }

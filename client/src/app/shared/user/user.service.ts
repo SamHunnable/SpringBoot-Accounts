@@ -38,11 +38,12 @@ getAll(): Observable < any > {
 
  addUser(newUser) {
    console.log("addUser in user.service ran");
-   this.http.post("//localhost:8080/users", newUser);
+   this.http.post("//localhost:8080/users/add", newUser).subscribe();
  }
 
  editUser(editedUser) {
-   this.http.put("//localhost:8080/users/edit", editedUser);
+   console.log("service layer editedUser is " + editedUser);
+   this.http.put("//localhost:8080/users/edit", editedUser).subscribe();
  }
 
 }
