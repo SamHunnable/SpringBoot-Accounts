@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 })
 export class UserService {
 
-private let webPath = "//localhost:8080/users";
+private let webPath = "http://localhost:8080/users";
 
 constructor(private http: HttpClient) { }
 
@@ -21,9 +21,17 @@ getAll(): Observable < any > {
 
   deleteById(id) {
     console.log("id is " + id);
-    path: String = 'localhost:8080/users/' + id;
-    console.log("path is " + this.path);
-    this.http.delete(this.path);
+    var testString = new String("http://localhost:8080/users/");
+    console.log(testString);
+    var idToDelete = new String(id);
+    console.log(idToDelete + " " + id );
+
+    var deletePath = testString.concat(idToDelete);
+    console.log("deletePath is " + deletePath);
+    console.log(this.webPath + '/' + id);
+    this.http.delete(this.webPath + '/' + id).subscribe(data => {
+      this.users = data;
+    });;
  }
 
  addUser(newUser) {

@@ -63,7 +63,7 @@ export class UserListComponent implements OnInit {
     newUser: String = {
       "firstName": this.newFirstName,
       "lastName": this.newLastName
-    }
+    };
     console.log("newUser is " + this.newuser);
     this.userService.addUser(this.newUser);
   }
